@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 ollama = "*"
 requests = "*"
+beautifulsoup4 = "*"
 
 [dev-packages]
 boto3 = "*"
