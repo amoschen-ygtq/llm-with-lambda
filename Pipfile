@@ -4,12 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-ollama = "*"
 requests = "*"
 beautifulsoup4 = "*"
 
 [dev-packages]
 boto3 = "*"
+ollama = "*"
 
 [requires]
 python_version = "3.11"
