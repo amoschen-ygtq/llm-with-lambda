@@ -1,5 +1,5 @@
-from services import OlamaChatService
-from services import WebScraperService
+from services.ollama_chat_service import OlamaChatService
+from services.web_scraper_service import WebScraperService
 
 URL = 'https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models'
 

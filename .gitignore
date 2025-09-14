@@ -84,3 +84,6 @@ Desktop.ini
 # dotenv
 .env
 .env.*
+
+# temp files and directories
+.build/
