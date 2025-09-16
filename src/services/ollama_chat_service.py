@@ -1,6 +1,6 @@
 from ollama import Client
 
-class OlamaChatService:
+class OllamaChatService:
     def __init__(self, host='http://host.docker.internal:11434', model='llama3.2'):
         self.client = Client(host=host)
         self.model = model
