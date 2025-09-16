@@ -1,4 +1,4 @@
-from services.ollama_chat_service import OlamaChatService
+from services.ollama_chat_service import OllamaChatService
 from services.web_scraper_service import WebScraperService
 
 URL = 'https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models'
@@ -6,7 +6,7 @@ URL = 'https://www.udemy.com/course/llm-engineering-master-ai-and-large-language
 scraper = WebScraperService()
 text_content = scraper.scrape_plain_text(URL)
 if text_content:
-    chat_service = OlamaChatService()
+    chat_service = OllamaChatService()
     user_message = f"Please summarize the following content:\n\n{text_content}"
     reply = chat_service.chat(user_message)
     print(reply)

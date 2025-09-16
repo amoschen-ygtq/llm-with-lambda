@@ -9,7 +9,6 @@ INFERENCE_PROFILE_ARN = os.environ.get("INFERENCE_PROFILE_ARN", None)
 if INFERENCE_PROFILE_ARN is None:
     raise ValueError("INFERENCE_PROFILE_ARN environment variable is not set.")
 
-DEFAULT_PROMPT = "Give me a fun fact about serverless technology."
 DEFAULT_URL = 'https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models'
 
 # Initialize Bedrock service in global scope
@@ -18,7 +17,7 @@ scraper = WebScraperService()
 
 def lambda_handler(event, context):
     """
-    Invokes a Bedrock model using an inference profile and returns the response.
+    Scrapes text content from a given URL and sends it to a Bedrock model for processing.
     """
     # Extract the user prompt from the Lambda event payload
     url = event.get('url', DEFAULT_URL)
