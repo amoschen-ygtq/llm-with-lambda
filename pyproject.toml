@@ -1,0 +1,14 @@
+# pyproject.toml
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+# Select lint rules, including the isort rules ("I")
+select = ["E", "F", "I"]
+# Ruff format takes care of these stylistic issues
+ignore = ["E501"]
+
+[tool.ruff.format]
+# Configure formatting options if you need to deviate from the defaults
+quote-style = "double"
