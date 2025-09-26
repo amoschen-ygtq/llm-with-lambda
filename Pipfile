@@ -10,6 +10,8 @@ beautifulsoup4 = "*"
 [dev-packages]
 boto3 = "*"
 ollama = "*"
+pre-commit = "*"
+ruff = "*"
 
 [requires]
 python_version = "3.11"

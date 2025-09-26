@@ -6,7 +6,8 @@ class WebScraperService:
     """
     A reusable service class for fetching and parsing web content.
     """
-    def __init__(self, parser='html.parser'):
+
+    def __init__(self, parser="html.parser"):
         """Initializes the service with a specific HTML parser."""
         self.parser = parser
         self.session = requests.Session()
@@ -26,7 +27,7 @@ class WebScraperService:
         if not html_content:
             return ""
         soup = BeautifulSoup(html_content, self.parser)
-        return soup.get_text(separator='\n', strip=True)
+        return soup.get_text(separator="\n", strip=True)
 
     def scrape_plain_text(self, url: str) -> str:
         """Fetches a URL and returns the plain text content."""
@@ -37,10 +38,10 @@ class WebScraperService:
 # The following code runs only if you execute web_scraper.py directly
 # So that this file can be imported into other Python files without
 # triggering the execution of this block of code.
-if __name__ == '__main__':
+if __name__ == "__main__":
     scraper = WebScraperService()
-    url_to_scrape = 'https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models'
-    
+    url_to_scrape = "https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models"
+
     # Use the combined method
     text_content = scraper.scrape_plain_text(url_to_scrape)
     if text_content:
