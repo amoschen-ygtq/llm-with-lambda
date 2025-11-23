@@ -69,6 +69,9 @@ class BedrockChatService:
         return validated_data
 
     def __build_messages(self, prompt: Prompt):
+        """
+        Build the messages and system prompts for Bedrock from the given Prompt object.
+        """
         system = []
         messages = []
         for message in prompt.messages:
@@ -83,6 +86,9 @@ class BedrockChatService:
     def __build_tool_config(
         self, output_model: Type[BaseModel], support_tool_choice_tool: bool = False
     ) -> dict:
+        """
+        Build the tool configuration for Bedrock to enforce structured output.
+        """
         json_schema = output_model.model_json_schema()
         tool_name = "json_output_tool"
         tool_config = {
@@ -97,11 +103,17 @@ class BedrockChatService:
             ]
         }
         # Optional but useful: force the model to use THIS tool
+        # at the time of writing I didn't find a Bedrock model that supports this feature
+        # but it's here for future use
         if support_tool_choice_tool:
             tool_config["toolChoice"] = {"tool": {"name": tool_name}}
         return tool_config
 
     def __create_model(self, data: Any, model: Type[BaseModel]) -> BaseModel | None:
+        """
+        Create and return an instance of the provided Pydantic model from the given data.
+        The data can be a JSON string or a dictionary.
+        """
         if isinstance(data, (str, bytes)):
             try:
                 model_instance = model.model_validate_json(data)
