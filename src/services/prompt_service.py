@@ -8,6 +8,9 @@ class PromptService:
         pass
 
     def build_content_summarization_prompt(self, text_content: str) -> Prompt:
+        """
+        Build a prompt for summarizing the given text content.
+        """
         messages = [
             Message(type=MessageType.SYSTEM, content="You are a helpful assistant."),
             Message(
@@ -20,6 +23,10 @@ class PromptService:
     def build_content_summarization_prompt_for_structural_output(
         self, text_content: str, example: BaseModel
     ) -> Prompt:
+        """
+        Build a prompt for summarizing the given text content into a structured format
+        according to the provided example model.
+        """
         messages = [
             Message(type=MessageType.SYSTEM, content="You are a helpful assistant."),
             Message(
